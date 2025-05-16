@@ -22,19 +22,17 @@ func main() {
 
 	monthlyPayment := calculateMonthlyPayment(principal, annualRate, months)
 
-	fmt.Printf("\n📄 Monthly Payment: %.2f\n", monthlyPayment)
+	fmt.Printf("\n Monthly Payment: %.2f\n", monthlyPayment)
 }
 
 // calculateMonthlyPayment calculates the value of a monthly installment
-func calculateMonthlyPayment(principal float64, annualRate float64, months int) float64 {
-	monthlyRate := annualRate / 12 / 100
+func calculateMonthlyPayment(principal, annualRate float64, months int) float64 {
+	r := annualRate / 12 / 100
+	n := float64(months)
 
-	if monthlyRate == 0 {
+	if r == 0 {
 		return principal / float64(months)
 	}
-
-	n := float64(months)
-	r := monthlyRate
 
 	payment := principal * r * math.Pow(1+r, n) / (math.Pow(1+r, n) - 1)
 	return payment

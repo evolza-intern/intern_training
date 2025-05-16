@@ -18,7 +18,7 @@ func main() {
 	words := countWords(text)
 	withSpaces, withoutSpaces := countCharacters(text)
 
-	fmt.Printf("\n📊 Analysis Results:\n")
+	fmt.Printf("\n Analysis Results:\n")
 	fmt.Printf("Total words: %d\n", words)
 	fmt.Printf("Total characters (with spaces): %d\n", withSpaces)
 	fmt.Printf("Total characters (without spaces): %d\n", withoutSpaces)
@@ -54,7 +54,7 @@ func countCharacters(text string) (withSpaces, withoutSpaces int) {
 	return
 }
 
-// countLetter returns how many times a given letter appears in the text (case-insensitive)
+// countLetter returns how many times a given letter appears in the text
 func countLetter(text string, letter rune) int {
 	count := 0
 	for _, ch := range strings.ToLower(text) {
